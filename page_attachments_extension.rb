@@ -1,6 +1,4 @@
 require_dependency 'application_controller'
-# require File.dirname(__FILE__) + '/lib/geometry'
-# require 'tempfile'
 
 class PageAttachmentsExtension < Radiant::Extension
   version "1.0"
@@ -12,13 +10,12 @@ class PageAttachmentsExtension < Radiant::Extension
    end
 
   def activate
-    # Regular page attachments stuff
-    Page.class_eval {
+    Page.class_eval do
       include PageAttachmentAssociations
       include PageAttachmentTags
-    }
-    UserActionObserver.send :include, ObservePageAttachments
-    Admin::PagesController.send :include, PageAttachmentsInterface
+    end
+    UserActionObserver.observe User, Page, Layout, Snippet, PageAttachment
+    admin.page.edit.add :form_bottom, 'attachments_box', :before => 'edit_buttons'
   end
 
   def deactivate
