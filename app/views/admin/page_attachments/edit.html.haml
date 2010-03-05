@@ -7,6 +7,10 @@
     %p.title
       = form.label :description
       = form.text_field :description, :class => 'textbox', :maxlength => 255
+    %p
+      Attached to Page:
+      - page = @page_attachment.page
+      = link_to page.title, edit_admin_page_path(page)
   %p.buttons
     = form.submit "Save"
     or
@@ -18,4 +22,9 @@
   - unless @page_attachment.title.blank?
     %p
       = h @page_attachment.short_title
+      %br
+  %p
+    - if @page_attachment.filename.match(/(jpg|gif|png|jpeg)$/)
+      = image_tag(@page_attachment.public_filename)
+    - else
       = link_to @page_attachment.short_filename, @page_attachment.public_filename
