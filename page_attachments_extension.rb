@@ -20,8 +20,8 @@ class PageAttachmentsExtension < Radiant::Extension
 
   def activate
     if self.respond_to?(:tab)
-      tab "Attachments" do
-        add_item 'List', "/admin/page_attachments"
+      tab "Content" do
+        add_item 'Attachments', "/admin/page_attachments"
       end
     else
       admin.tabs.add 'Attachments', '/admin/page_attachments', :after => "Layouts", :visibility => [:admin]
@@ -32,7 +32,10 @@ class PageAttachmentsExtension < Radiant::Extension
       include PageAttachmentTags
     }
     UserActionObserver.instance.send :add_observer!, PageAttachment
-    Admin::PagesController.send :include, PageAttachmentsInterface
+    Admin::PagesController.class_eval {
+      include PageAttachmentsInterface
+      helper Admin::PageAttachmentsHelper
+    }
   end
 
   def deactivate
