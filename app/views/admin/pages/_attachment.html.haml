@@ -4,11 +4,13 @@
   = hidden_field_tag "page[attachments_attributes][#{attachment_counter}][position]", attachment.position
   - unless attachment.first? && attachment.last?
     = image_tag 'admin/page_attachments/drag_order.png', :alt => "Drag handle", :title => "Drag to change order", :class => 'drag_order'
-  %div= image_tag "admin/minus.png", :alt => "delete", :class => 'delete'
+  .attachment_remover= image_tag "admin/minus.png", :alt => "delete", :class => 'delete'
   - unless attachment.thumbnails.empty?
     = link_to image_tag(attachment.public_filename("icon")),  attachment.public_filename, :class => 'thumbnail'
-  - display_title = attachment.title.blank? ? 'no title given' : h(attachment.short_title(30))
+  .sample_attachment_code
+    cut/paste:
+    = sample_attachment_code(attachment)
   %p
-    = link_to display_title, attachment.public_filename
+    = link_to attachment.filename, attachment.public_filename
     / = link_to '(edit)', edit_admin_page_attachment_path(attachment)
-  = attachment.filename
+  = attachment.title

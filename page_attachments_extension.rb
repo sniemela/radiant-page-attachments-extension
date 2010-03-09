@@ -10,11 +10,23 @@ class PageAttachmentsExtension < Radiant::Extension
    end
 
   def activate
-    Page.class_eval do
+    if self.respond_to?(:tab)
+      tab "Content" do
+        add_item 'Attachments', "/admin/page_attachments"
+      end
+    else
+      admin.tabs.add 'Attachments', '/admin/page_attachments', :after => "Layouts", :visibility => [:admin]
+    end
+    # Regular page attachments stuff
+    Page.class_eval {
       include PageAttachmentAssociations
       include PageAttachmentTags
-    end
-    UserActionObserver.observe User, Page, Layout, Snippet, PageAttachment
+    }
+    UserActionObserver.instance.send :add_observer!, PageAttachment
+    Admin::PagesController.class_eval {
+      # include PageAttachmentsInterface
+      helper Admin::PageAttachmentsHelper
+    }
     admin.page.edit.add :form_bottom, 'attachments_box', :before => 'edit_buttons'
   end
 

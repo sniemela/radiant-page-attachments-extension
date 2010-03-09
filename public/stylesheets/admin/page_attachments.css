@@ -27,9 +27,11 @@
   margin: 0;
   padding: 0.5em;
 }
-#attachments .attachment_upload {
+#content #attachments a { color: #000;}
+.attachment_upload {
   padding: 0 0.8em 0.8em 0.8em;
 }
+.sample_attachment_code { float: right; color: #886;}
 #attachments p.notice {
   padding: .5em .8em;
   font-style: italic;
@@ -56,7 +58,7 @@
 #attachments ol li {
   margin-left: 0;
 }
-#attachments ol li div {
+.attachment_remover {
   float: left;
   width: 25px;
 }
