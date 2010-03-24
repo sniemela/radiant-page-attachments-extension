@@ -1,10 +1,10 @@
 class Admin::PageAttachmentsController < ApplicationController
   
   def index
-    @attachments = PageAttachment.paginate :per_page => 25, :page => params[:page], :conditions => {:parent_id => nil}, :order => 'title, filename'
+    @attachments = PageAttachment.all(:conditions => {:parent_id => nil}, :include => [:page], :order => 'title, filename').paginate :per_page => 25, :page => params[:page]
   end
   def grid
-    @attachments = PageAttachment.paginate :per_page => 25, :page => params[:page], :conditions => {:parent_id => nil}, :order => 'title, filename'
+    @attachments = PageAttachment.all(:conditions => {:parent_id => nil}, :include => [:page], :order => 'title, filename').paginate :per_page => 25, :page => params[:page]
   end
   
   def edit
@@ -12,7 +12,10 @@ class Admin::PageAttachmentsController < ApplicationController
   end
   def update
     @page_attachment = PageAttachment.find(params[:id])
-    if @page_attachment.update_attributes(params[:page_attachment])
+    params[:page_attachment].each do |k,v|
+      @page_attachment[k] = v
+    end
+    if @page_attachment.save!
       redirect_to admin_page_attachments_url
     else
       render :edit
