@@ -9,7 +9,7 @@
       %li
         .sample= link_to(image_tag(preview_path(attachment)), attachment.public_filename)
         .pageTitle= (attachment.title.blank? ? attachment.filename : attachment.title)
-        .pageTitle= link_to attachment.page.title, page_edit_url(attachment.page)
+        .pageTitle= link_to attachment.page.title, edit_admin_page_url(attachment.page)
         %span
           - if attachment.filename.match(/\.(jpg|gif|png|jpeg|tiff?)$/)
             - code = %{<r:attachment name="#{attachment.filename}" url="#{attachment.page.url}"><r:image /></r:attachment>}
