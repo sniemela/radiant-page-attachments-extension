@@ -19,6 +19,6 @@ module Admin::PageAttachmentsHelper
     else
       code = h(%{<r:attachment name='#{attachment.filename}'#{url_scope}><r:link/></r:attachment>})
     end        
-    content_tag(:input, '', {:type => 'text', :value => code, :size => 60})
+    tag("input", {:value => "#{code}", :type => 'text', :value => code, :size => 60})
   end
 end
