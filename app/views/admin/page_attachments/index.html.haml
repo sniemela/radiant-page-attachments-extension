@@ -13,14 +13,13 @@
       - @attachments.each do |attachment|
         %tr
           %td
-            = attachment.title.blank? ? attachment.filename : attachment.title
-            = link_to('(edit)', edit_admin_page_attachment_path(attachment))
+            = link_to((attachment.title.blank? ? 'add one...' : attachment.title), edit_admin_page_attachment_path(attachment))
           %td= attachment.description
           %td= link_to(attachment.filename, attachment.public_filename)
           %td= link_to attachment.page.title, edit_admin_page_url(attachment.page)
           %td
             = sample_attachment_code(attachment)
-  = will_paginate @attachments
+  = will_paginate @attachments, :param_name => 'p'
 
   #switch_layout
     %p
