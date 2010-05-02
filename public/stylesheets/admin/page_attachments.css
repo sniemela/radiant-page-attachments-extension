@@ -92,27 +92,27 @@
   margin: 1em 0 ;
 }
 
-#attachments p a:link, a:visited {
+#content #attachments p a:link, #content #attachments p a:visited {
   color: #06C;
 }
 
-#attachments p a:link:focus, #attachments p a:visited:focus {
+#content #attachments p a:link:focus, #content #attachments p a:visited:focus {
   
 }
 
-#attachments p a:link {
+#content #attachments p a:link {
   
 }
 
-#attachments p a:visited {
+#content #attachments p a:visited {
   
 }
 
-#attachments p a:link:hover, #attachments p a:visited:hover {
+#content #attachments p a:link:hover, #content #attachments p a:visited:hover {
   
 }
 
-#attachments p a:link:active, #attachments p a:visited:active {
+#content #attachments p a:link:active, #content #attachments p a:visited:active {
   
 }
 
