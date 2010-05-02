@@ -12,13 +12,13 @@ module Admin::PageAttachmentsHelper
   def sample_attachment_code(attachment, page = nil)
     url_scope = ''
     unless @page
-      url_scope = " url=#{attachment.page.url}"
+      url_scope = " url='#{attachment.page.url}'"
     end
     if attachment.filename.match(/\.(jpg|gif|png|jpeg|tiff?)$/)
-      code = h(%{<r:attachment name="#{attachment.filename}"#{url_scope}><r:image /></r:attachment>})
+      code = h(%{<r:attachment name='#{attachment.filename}'#{url_scope}><r:image/></r:attachment>})
     else
-      code = h(%{<r:attachment name="#{attachment.filename}"#{url_scope}><r:link /></r:attachment>})
+      code = h(%{<r:attachment name='#{attachment.filename}'#{url_scope}><r:link/></r:attachment>})
     end        
-    content_tag(:input, '', {:type => 'text', :value => code, :size => 60})
+    tag("input", {:value => "#{code}", :type => 'text', :value => code, :size => 60})
   end
 end

@@ -9,7 +9,11 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sean Cribbs"]
+<<<<<<< HEAD
   s.date = %q{2010-05-02}
+=======
+  s.date = %q{2010-04-21}
+>>>>>>> b125303cc6f6370bfeef77eae67c3152ecadf907
   s.description = %q{Page Attachments adds support for file uploads realized as attachments to individual pages. Attachments can have an order via acts_as_list, a title, a description and various metadata fields as provided by AttachmentFu.}
   s.email = %q{radiant@radiantcms.org}
   s.extra_rdoc_files = [
@@ -18,39 +22,58 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".gitignore",
+<<<<<<< HEAD
      "HELP.md",
+=======
+>>>>>>> b125303cc6f6370bfeef77eae67c3152ecadf907
      "LICENSE",
      "README.md",
      "Rakefile",
      "VERSION",
+<<<<<<< HEAD
      "app/controllers/admin/page_attachments_controller.rb",
      "app/helpers/admin/page_attachments_helper.rb",
+=======
+     "app/models/observe_page_attachments.rb",
+>>>>>>> b125303cc6f6370bfeef77eae67c3152ecadf907
      "app/models/page_attachment.rb",
      "app/models/page_attachment_associations.rb",
      "app/models/page_attachment_tags.rb",
      "app/models/page_attachments_interface.rb",
+<<<<<<< HEAD
      "app/views/admin/page_attachments/edit.html.haml",
      "app/views/admin/page_attachments/grid.html.haml",
      "app/views/admin/page_attachments/index.html.haml",
+=======
+>>>>>>> b125303cc6f6370bfeef77eae67c3152ecadf907
      "app/views/admin/pages/_attachment.html.haml",
      "app/views/admin/pages/_attachments_box.html.haml",
      "db/migrate/001_create_page_attachments_extension_schema.rb",
      "db/migrate/002_add_page_attachments_fields.rb",
+<<<<<<< HEAD
      "db/migrate/20100305024408_add_indices.rb",
      "db/migrate/20100330002215_remove_unique_index_on_position.rb",
+=======
+>>>>>>> b125303cc6f6370bfeef77eae67c3152ecadf907
      "features/attachments.feature",
      "features/step_definitions/attachment_steps.rb",
      "features/support/env.rb",
      "features/support/paths.rb",
+<<<<<<< HEAD
      "lib/attachment_fu_patches.rb",
+=======
+>>>>>>> b125303cc6f6370bfeef77eae67c3152ecadf907
      "lib/difference_test_helper.rb",
      "lib/radiant-page_attachments-extension.rb",
      "lib/tasks/page_attachments_extension_tasks.rake",
      "page_attachments_extension.rb",
      "public/images/admin/drag_order.png",
+<<<<<<< HEAD
      "public/images/admin/page_attachments/move_higher.png",
      "public/images/admin/page_attachments/move_lower.png",
      "public/images/admin/page_attachments/pdf-icon.png",
+=======
+>>>>>>> b125303cc6f6370bfeef77eae67c3152ecadf907
      "public/javascripts/admin/page_attachments.js",
      "public/stylesheets/admin/page_attachments.css",
      "radiant-page_attachments-extension.gemspec",

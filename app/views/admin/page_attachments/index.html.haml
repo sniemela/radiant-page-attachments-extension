@@ -1,21 +1,27 @@
-/ %p
-/   Try the 
-/   = link_to('Grid view', admin_page_attachments_grid_path)
+- include_stylesheet 'admin/page_attachments'
+- @body_classes = ["reversed"]
+%h1 Page Attachments
 .outset
   %table.index
     %tr
-      %th Name
       %th Title
+      %th Description
+      %th File Name
       %th Page
-      %th Code
+      %th Copy/Paste
     - unless @attachments.blank?
       - @attachments.each do |attachment|
         %tr
           %td
-            = link_to(attachment.filename, edit_admin_page_attachment_path(attachment))
-            = link_to('(view)', attachment.public_filename)
-          %td= attachment.title
+            = attachment.title.blank? ? attachment.filename : attachment.title
+            = link_to('(edit)', edit_admin_page_attachment_path(attachment))
+          %td= attachment.description
+          %td= link_to(attachment.filename, attachment.public_filename)
           %td= link_to attachment.page.title, edit_admin_page_url(attachment.page)
           %td
             = sample_attachment_code(attachment)
   = will_paginate @attachments
+
+  #switch_layout
+    %p
+      = link_to('Grid view', admin_page_attachments_grid_path)

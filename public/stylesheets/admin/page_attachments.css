@@ -91,6 +91,31 @@
   font-weight: bold;
   margin: 1em 0 ;
 }
+
+#content #attachments p a:link, #content #attachments p a:visited {
+  color: #06C;
+}
+
+#content #attachments p a:link:focus, #content #attachments p a:visited:focus {
+  
+}
+
+#content #attachments p a:link {
+  
+}
+
+#content #attachments p a:visited {
+  
+}
+
+#content #attachments p a:link:hover, #content #attachments p a:visited:hover {
+  
+}
+
+#content #attachments p a:link:active, #content #attachments p a:visited:active {
+  
+}
+
 #attachments table {
   margin-top: 1em;
 }
