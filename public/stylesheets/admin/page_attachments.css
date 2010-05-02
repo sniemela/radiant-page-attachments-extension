@@ -90,6 +90,31 @@
   font-weight: bold;
   margin: 1em 0 ;
 }
+
+#attachments p a:link, a:visited {
+  color: #06C;
+}
+
+#attachments p a:link:focus, #attachments p a:visited:focus {
+  
+}
+
+#attachments p a:link {
+  
+}
+
+#attachments p a:visited {
+  
+}
+
+#attachments p a:link:hover, #attachments p a:visited:hover {
+  
+}
+
+#attachments p a:link:active, #attachments p a:visited:active {
+  
+}
+
 #attachments table {
   margin-top: 1em;
 }
