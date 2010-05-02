@@ -108,6 +108,7 @@ Contributors
 
 These people have contributed patches that have been added to the extension:
 
+* [Jim Gay][jg]
 * [John Muhl][jm]
 * [Daniel Collis-Puro][djcp]
 * [James Burka][jb]
@@ -123,6 +124,7 @@ These people have contributed patches that have been added to the extension:
 [pa]: http://github.com/radiant/radiant-page-attachments-extension/tarball/master
 [s3]: http://www.amazon.com/gp/browse.html?node=16427261
 [jm]: http://github.com/johnmuhl
+[jg]: http://saturnflyer.com/
 [djcp]: http://www.kookdujour.com/
 [jb]: http://github.com/jjburka
 [ihoka]: http://github.com/ihoka
