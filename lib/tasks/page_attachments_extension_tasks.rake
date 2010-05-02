@@ -15,8 +15,8 @@ namespace :radiant do
       desc "Copies public assets of the Page Attachments to the instance public/ directory."
       task :update => :environment do
         puts "Copying assets from PageAttachmentsExtension"
-        FileUtils.cp PageAttachmentsExtension.root + "/public/stylesheets/page_attachments.css", RAILS_ROOT + "/public/stylesheets/admin"
-        FileUtils.cp PageAttachmentsExtension.root + "/public/javascripts/page_attachments.js", RAILS_ROOT + "/public/javascripts"
+        FileUtils.cp PageAttachmentsExtension.root + "/public/stylesheets/admin/page_attachments.css", RAILS_ROOT + "/public/stylesheets/admin"
+        FileUtils.cp PageAttachmentsExtension.root + "/public/javascripts/admin/page_attachments.js", RAILS_ROOT + "/public/javascripts/admin"
         FileUtils.mkdir RAILS_ROOT + "/public/images/admin/page_attachments" unless File.exist? "#{RAILS_ROOT}/public/images/admin/page_attachments"
         FileUtils.cp PageAttachmentsExtension.root + "/public/images/admin/drag_order.png", RAILS_ROOT + "/public/images/admin/page_attachments"
       end
