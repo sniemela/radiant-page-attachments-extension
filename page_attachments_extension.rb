@@ -5,6 +5,10 @@ class PageAttachmentsExtension < Radiant::Extension
   description "Adds page-attachment-style asset management."
   url "http://radiantcms.org"
 
+  extension_config do |config|
+    config.gem 'will_paginate'
+  end
+
   define_routes do |map|
     map.namespace :admin do |admin|
       admin.resources :page_attachments
