@@ -5,12 +5,12 @@ class PageAttachmentsExtension < Radiant::Extension
   description "Adds page-attachment-style asset management."
   url "http://radiantcms.org"
 
-   define_routes do |map|
-     map.namespace :admin do |admin|
-       admin.resources :page_attachments
-       admin.page_attachments_grid '/page_attachments_grid', :controller => 'page_attachments', :action => 'grid'
-     end
-   end
+  define_routes do |map|
+    map.namespace :admin do |admin|
+      admin.resources :page_attachments
+      admin.page_attachments_grid '/page_attachments_grid', :controller => 'page_attachments', :action => 'grid'
+    end
+  end
 
   def activate
     if self.respond_to?(:tab)
