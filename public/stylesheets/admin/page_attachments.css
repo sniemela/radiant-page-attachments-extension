@@ -157,3 +157,82 @@
 li.clearfix {
   display: list-item;
 }
+
+#switch_layout {
+  position: absolute;
+  top: 2.45em;
+  right: 0.8em;
+  z-index: 99;
+}
+
+#switch_layout a {
+  background-color: #000;
+  border-radius: 10px;
+  color: #FFF;
+  font-size: 71.5%;
+  font-weight: bold;
+  margin: 0;
+  -moz-opacity: 0.8;
+  filter:alpha(opacity=80);
+  opacity: 0.8;
+  padding: 4px 10px;
+  text-decoration: none;
+}
+
+#grid {
+  margin: 1em;
+}
+
+#grid div {
+  background-color: #EEE;
+  border-radius: 3px;
+  float: left;
+  margin-top: 0;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 0;
+  padding: 0 1em;
+  width: 205px;
+}
+
+#grid div div {
+  background-color: transparent;
+  margin: 0.5em 0 1em 0;
+  padding: 0;
+}
+
+#grid div div input {
+  width: 195px;
+}
+
+#grid div h2 {
+  background-color: inherit;
+  color: #222;
+  font-size: 100%;
+  margin: 1em 0 0.5em 0
+}
+
+#grid div h2 span {
+  display: inline;
+}
+
+#grid div span {
+  display: block;
+  height: 100px;
+}
+
+#grid div span img {
+  max-height: 100px;
+  width: 100px;
+}
+
+#grid div p {
+  background-color: inherit;
+  color: #666;
+  font-size: 85.714285714285714285%;
+  margin: 0.5em 0 0.5em 0;
+}
+
+#grid div p span {
+  display: inline;
+}

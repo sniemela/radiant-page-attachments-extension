@@ -28,3 +28,20 @@ Event.addBehavior({
   }
 
 });
+
+var get_event_target = function (e) {
+  e = e || window.event;
+  return e.target || e.srcElement;
+};
+
+var select_sample_code = function (target) {
+  target.focus();
+  target.select();
+};
+
+document.observe("dom:loaded", function() {
+  document.getElementById('page_attachments').onclick = function (e) {
+    var target = get_event_target(e);
+    if (target.value) select_sample_code(target);
+  };
+});
