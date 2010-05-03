@@ -40,7 +40,7 @@ var select_sample_code = function (target) {
 };
 
 document.observe("dom:loaded", function() {
-  document.getElementById('page_attachments').onclick = function (e) {
+  document.getElementById('attachments').onclick = function (e) {
     var target = get_event_target(e);
     if (target.value) select_sample_code(target);
   };
