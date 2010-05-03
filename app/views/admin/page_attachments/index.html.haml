@@ -19,7 +19,7 @@
             %td= link_to page.title, edit_admin_page_url(page), :title => page.url
             %td
               = sample_attachment_code(attachment)
-    = will_paginate @attachments, :param_name => 'p'
+    = will_paginate @attachments
 
     #switch_layout
       %p

@@ -1,8 +1,8 @@
 - include_stylesheet 'admin/page_attachments'
 - include_javascript 'admin/page_attachments'
 #attachments
-  %p= will_paginate @attachments
   .outset
+    %p= will_paginate @attachments
     #grid
       - unless @attachments.blank?
         - @attachments.each do |attachment|
@@ -16,6 +16,7 @@
             %div
               %p copy/paste:
               = sample_attachment_code(attachment)
+    %p.clearfix= will_paginate @attachments
 
   #switch_layout
     %p
