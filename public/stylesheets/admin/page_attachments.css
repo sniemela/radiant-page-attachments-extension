@@ -92,52 +92,28 @@
   margin: 1em 0 ;
 }
 
-#content #attachments p a:link, #content #attachments p a:visited {
-  color: #06C;
-}
-
-#content #attachments p a:link:focus, #content #attachments p a:visited:focus {
-  
-}
-
-#content #attachments p a:link {
-  
-}
-
-#content #attachments p a:visited {
-  
-}
-
-#content #attachments p a:link:hover, #content #attachments p a:visited:hover {
-  
-}
-
-#content #attachments p a:link:active, #content #attachments p a:visited:active {
-  
-}
-
-#attachments table {
+#attachments.page table {
   margin-top: 1em;
 }
-#attachments table th {
+#attachments.page table th {
   font-weight: bold;
   text-align: right;
   padding-right: 10px;
   width: 120px;
   padding-bottom: 5px;
 }
-#attachments table td {
+#attachments.page table td {
  padding-bottom: 5px;
 }
-#attachments li.attachment.deleted em {
+#attachments.page li.attachment.deleted em {
   color: #ff0000;
   margin: 0 0 10px 20px;
 }
-#attachments li.attachment.deleted a {
+#attachments.page li.attachment.deleted a {
   opacity: 0.5;
   text-decoration: line-through;
 }
-#attachments li.attachment.deleted img.delete {
+#attachments.page li.attachment.deleted img.delete {
   visibility: hidden;
 }
 
@@ -158,14 +134,18 @@ li.clearfix {
   display: list-item;
 }
 
-#switch_layout {
+#content #attachments p a:link, #content #attachments p a:visited {
+  color: #06C;
+}
+
+#content #attachments #switch_layout {
   position: absolute;
   top: 2.45em;
   right: 0.8em;
   z-index: 99;
 }
 
-#switch_layout a {
+#content #attachments #switch_layout a {
   background-color: #000;
   border-radius: 10px;
   color: #FFF;
