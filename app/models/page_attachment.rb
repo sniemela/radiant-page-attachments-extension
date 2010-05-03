@@ -14,15 +14,17 @@ class PageAttachment < ActiveRecord::Base
   belongs_to :page
 
   def short_filename(wanted_length = 15, suffix = ' ...')
-          (self.filename.length > wanted_length) ? (self.filename[0,(wanted_length - suffix.length)] + suffix) : self.filename
+    (self.filename.length > wanted_length) ? (self.filename[0,(wanted_length - suffix.length)] + suffix) : self.filename
   end
 
   def short_title(wanted_length = 15, suffix = ' ...')
-          (self.title.length > wanted_length) ? (self.title[0,(wanted_length - suffix.length)] + suffix) : self.title
+    return '' if self.title.blank?
+    (self.title.length > wanted_length) ? (self.title[0,(wanted_length - suffix.length)] + suffix) : self.title
   end
 
   def short_description(wanted_length = 15, suffix = ' ...')
-          (self.description.length > wanted_length) ? (self.description[0,(wanted_length - suffix.length)] + suffix) : self.description
+    return '' if self.description.blank?
+    (self.description.length > wanted_length) ? (self.description[0,(wanted_length - suffix.length)] + suffix) : self.description
   end
 
 end
