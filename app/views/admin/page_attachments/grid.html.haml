@@ -1,23 +1,22 @@
 - include_stylesheet 'admin/page_attachments'
-- @body_classes = ["reversed"]
-%h1 Page Attachments
-.outset
-  #grid
-    - unless @attachments.blank?
-      - @attachments.each do |attachment|
-        %div
-          %h2
-            = attachment.title.blank? ? attachment.filename : attachment.title
-            = link_to('(edit)', edit_admin_page_attachment_path(attachment))
-          %span
-            = link_to(image_tag(preview_path(attachment)), attachment.public_filename)
-          %p
-            = attachment.filename
-            %span.page
-              = link_to attachment.page.title, edit_admin_page_url(attachment.page)
-          %div= sample_attachment_code(attachment)
-  = will_paginate @attachments
+- include_javascript 'admin/page_attachments'
+#attachments
+  .outset
+    #grid
+      - unless @attachments.blank?
+        - @attachments.each do |attachment|
+          %div
+            %h2
+              = attachment.short_title.blank? ? attachment.short_filename(20) : attachment.short_title(20)
+              %span= link_to('(edit)', edit_admin_page_attachment_path(attachment))
+            %span
+              = link_to(image_tag(preview_path(attachment)), attachment.public_filename)
+            / %p= link_to attachment.page.title, edit_admin_page_url(attachment.page)
+            %div
+              %p copy/paste:
+              = sample_attachment_code(attachment)
+    = will_paginate @attachments
 
-  #switch_layout
-    %p
-      = link_to('List view', admin_page_attachments_path)
+    #switch_layout
+      %p
+        = link_to('List view', admin_page_attachments_path)
