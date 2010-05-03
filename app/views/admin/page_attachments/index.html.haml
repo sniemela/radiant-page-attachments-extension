@@ -4,20 +4,19 @@
   .outset
     %table.index
       %tr
-        %th Title
-        %th Description
-        %th File Name
+        %th Image
+        %th Description (view)
         %th Page
         %th Copy/Paste
       - unless @attachments.blank?
         - @attachments.each do |attachment|
+          - page = attachment.page
           %tr
             %td
-              = attachment.title.blank? ? attachment.filename : attachment.title
-              = link_to('(edit)', edit_admin_page_attachment_path(attachment))
-            %td= attachment.description
-            %td= link_to(attachment.filename, attachment.public_filename)
-            %td= link_to attachment.page.title, edit_admin_page_url(attachment.page)
+              - link_text = attachment.title.blank? ? attachment.filename : attachment.title
+              = link_to(link_text, edit_admin_page_attachment_path(attachment), :title => 'Edit this image')
+            %td= link_to((attachment.description || attachment.public_filename), attachment.public_filename, :title => attachment.public_filename)
+            %td= link_to page.title, edit_admin_page_url(page), :title => page.url
             %td
               = sample_attachment_code(attachment)
     = will_paginate @attachments, :param_name => 'p'
