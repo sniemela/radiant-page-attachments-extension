@@ -1,4 +1,4 @@
-#attachments {
+#attachments.page {
   clear: both;
   color: #333;
   background: #f5f1e2 url(/images/admin/vertical_tan_gradient.png) repeat-x top;
@@ -7,76 +7,76 @@
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
 }
-#attachments .toolbar {
+#attachments.page .toolbar {
   float: right;
   padding: 6px 6px 0;
   width: 50px;
   text-align: right;
 }
-#attachments .toolbar img {
+#attachments.page .toolbar img {
   padding: 5px;
   cursor: pointer;
 }
-#attachments h3 {
+#attachments.page h3 {
   font-size: 16px;
   padding: 7px 0;
 }
-#attachments h3, #attachments p.notice {
+#attachments.page h3, #attachments.page p.notice {
   background: #eae3c5;
   margin: 0;
   padding: 0.5em;
 }
-#content #attachments a { color: #000;}
+#content #attachments.page a { color: #000;}
 .attachment_upload {
   padding: 0 0.8em 0.8em 0.8em;
 }
 .sample_attachment_code { float: right; color: #886;}
-#attachments p.notice {
+#attachments.page p.notice {
   padding: .5em .8em;
   font-style: italic;
   font-size: 90%;
   color: red;
 }
-#attachments .attachment_upload img,
-#attachments .attachment img.delete {
+#attachments.page .attachment_upload img,
+#attachments.page .attachment img.delete {
   cursor: pointer;
   padding: 2px;
   margin-left:7px;
 }
-#attachments .attachment img.drag_order {
+#attachments.page .attachment img.drag_order {
   cursor: move;
   float: right;
   padding: 2px;
   margin-right:6px;
 }
-#attachments ol {
+#attachments.page ol {
   list-style: none;
   padding: 0 10px 0 10px;
   margin: 0;
 }
-#attachments ol li {
+#attachments.page ol li {
   margin-left: 0;
 }
 .attachment_remover {
   float: left;
   width: 25px;
 }
-#attachments ol li a.thumbnail {
+#attachments.page ol li a.thumbnail {
   float: left;
   margin: 0 10px 0 10px;
 }
-#attachments ol li p {
+#attachments.page ol li p {
   margin: 0 0 5px 0;
 }
-#attachments ol li {
+#attachments.page ol li {
   border-bottom: 1px dashed #cccccc;
   width: 100%;
   padding: 8px 0;
 }
-#attachments ol li:last-child {
+#attachments.page ol li:last-child {
   border-bottom: none;
 }
-#attachments .attachment .thumbnail img {
+#attachments.page .attachment .thumbnail img {
   background: white;
   border: 1px solid #d4cba4;
   padding: 3px;
@@ -84,7 +84,7 @@
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
 }
-#attachments p.title {
+#attachments.page p.title {
   border-bottom: 1px #eae3c5 solid;
   width: 66%;
   font-size: 17px;
