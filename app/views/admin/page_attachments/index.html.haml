@@ -14,7 +14,7 @@
             %td
               - link_text = attachment.title.blank? ? attachment.filename : attachment.title
               = link_to(link_text, edit_admin_page_attachment_path(attachment), :title => 'Edit this image')
-              = link_to("(view)", attachment.public_filename, :title => page.url)
+              = link_to("(view)", attachment.public_filename, :title => attachment.filename)
             %td= attachment.description
             %td= link_to page.title, edit_admin_page_url(page), :title => page.url
             %td
