@@ -1,6 +1,14 @@
 class PageAttachment < ActiveRecord::Base
   acts_as_list :scope => :page_id
-  has_attachment :storage => (File.exist?(Rails.root + 'config/amazon_s3.yml') ? :s3 : :file_system),
+  has_attachment :storage => (
+                    case
+                      when File.exist?(Rails.root + 'config/amazon_s3.yml')
+                        :s3
+                      when File.exist?(Rails.root + 'config/rackspace_cloudfiles.yml')
+                        :cloud_files
+                      else
+                        :file_system
+                    end),
                  :thumbnails => defined?(PAGE_ATTACHMENT_SIZES) && PAGE_ATTACHMENT_SIZES || {:icon => '50x50>'},
                  :max_size => defined?(PAGE_ATTACHMENT_MAX_FILESIZE) ? PAGE_ATTACHMENT_MAX_FILESIZE : 10.megabytes
   validates_as_attachment
