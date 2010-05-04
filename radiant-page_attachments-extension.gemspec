@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sean Cribbs"]
-  s.date = %q{2010-05-03}
+  s.date = %q{2010-05-04}
   s.description = %q{Page Attachments adds support for file uploads realized as attachments to individual pages. Attachments can have an order via acts_as_list, a title, a description and various metadata fields as provided by AttachmentFu.}
   s.email = %q{radiant@radiantcms.org}
   s.extra_rdoc_files = [
@@ -58,7 +58,6 @@ Gem::Specification.new do |s|
      "spec/datasets/page_attachments_dataset.rb",
      "spec/fixtures/foo.txt",
      "spec/fixtures/rails.png",
-     "spec/models/observe_page_attachments_spec.rb",
      "spec/models/page_attachment_spec.rb",
      "spec/models/page_attachment_tags_spec.rb",
      "spec/models/page_spec.rb",
@@ -124,7 +123,6 @@ Gem::Specification.new do |s|
   s.test_files = [
     "spec/controllers/pages_controller_spec.rb",
      "spec/datasets/page_attachments_dataset.rb",
-     "spec/models/observe_page_attachments_spec.rb",
      "spec/models/page_attachment_spec.rb",
      "spec/models/page_attachment_tags_spec.rb",
      "spec/models/page_spec.rb",
