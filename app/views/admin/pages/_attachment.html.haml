@@ -11,6 +11,6 @@
     cut/paste:
     = sample_attachment_code(attachment)
   %p
-    = link_to attachment.filename, attachment.public_filename
-    = link_to '(edit)', edit_admin_page_attachment_path(attachment)
+    = link_to attachment.filename, edit_admin_page_attachment_path(attachment)
+    = link_to '(view)', attachment.public_filename
   = attachment.title

@@ -193,7 +193,7 @@ li.clearfix {
 #grid div h2 {
   background-color: inherit;
   color: #222;
-  font-size: 100%;
+  font-size: 93%;
   margin: 1em 0 0.5em 0
 }
 
@@ -214,10 +214,52 @@ li.clearfix {
 #grid div p {
   background-color: inherit;
   color: #666;
-  font-size: 85.714285714285714285%;
+  font-size: 85%;
   margin: 0.5em 0 0.5em 0;
 }
 
 #grid div p span {
   display: inline;
+}
+
+.pagination {
+  clear: both;
+  margin: 0 0 0 1em;
+  padding-top: 1em;
+}
+
+.pagination a, .pagination span {
+  background-color: #EEE;
+  padding: 0.5em 1em;
+  text-shadow: 0 1px 0 #FFF;
+}
+.pagination a:hover {
+  background-color: #666;
+  color: #FFF;
+  text-shadow: 0 1px 0 #000;
+}
+.pagination span {
+  color: #666;
+  cursor: default;
+}
+.pagination .prev_page {
+  -webkit-border-radius-topleft: 3px;
+  -webkit-border-radius-bottomleft: 3px;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.pagination .next_page {
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.pagination .next_page {}
+.pagination .current {
+  background-color: #FFF;
+  color: #222;
 }
