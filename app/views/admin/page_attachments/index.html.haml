@@ -24,4 +24,4 @@
 
     #switch_layout
       %p
-        = link_to('Grid View', admin_page_attachments_grid_path)
+        = link_to('Grid View', admin_page_attachments_grid_path(:p => @pagination_parameters[:page]))
