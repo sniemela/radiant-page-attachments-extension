@@ -118,10 +118,12 @@ module PageAttachmentTags
     The 'name' attribute is required on this tag or the parent tag.
     Any other attributes will be added as HTML attributes to the rendered tag.
     The optional 'size' attribute allows you to show the icon size of the image.
+    
+    An 'alt' attribute will automatically be added for you and will use the attachment's title or the text of any alt attribute you provide.
 
     *Usage*:
 
-    <pre><code><r:attachment:image name="file.jpg" [size="icon"]/></code></pre>
+    <pre><code><r:attachment:image name="file.jpg" [size="icon"] [alt="my photo"]/></code></pre>
 
     }
   tag "attachment:image" do |tag|
@@ -131,7 +133,11 @@ module PageAttachmentTags
     size = tag.attr['size'] || nil
     raise TagError, "attachment is not an image." unless attachment.content_type.strip =~ /^image\//
     filename = attachment.public_filename(size) rescue ""
-    attributes = tag.attr.inject([]){ |a,(k,v)| a << %{#{k}="#{v}"} }.join(" ").strip
+    unless tag.attr.has_key?('alt')
+      alt = %{alt="#{attachment.title || ''}"}
+    end
+    additional_attributes = tag.attr.inject([]){ |a,(k,v)| a << %{#{k}="#{v}"} }.join(" ").strip
+    attributes = alt + (additional_attributes.blank? ? '' : " #{additional_attributes}")
     %{<img src="#{filename}" #{attributes + " " unless attributes.empty?}/>}
   end
 
