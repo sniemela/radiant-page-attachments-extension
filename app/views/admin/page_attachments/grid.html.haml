@@ -2,7 +2,6 @@
 - include_javascript 'admin/page_attachments'
 #attachments
   .outset
-    %p= will_paginate @attachments
     #grid
       - unless @attachments.blank?
         - @attachments.each do |attachment|
@@ -12,11 +11,10 @@
               %span= link_to('(edit)', edit_admin_page_attachment_path(attachment))
             %span
               = link_to(image_tag(preview_path(attachment)), attachment.public_filename)
-            / %p= link_to attachment.page.title, edit_admin_page_url(attachment.page)
             %div
               %p copy/paste:
               = sample_attachment_code(attachment)
-    %p.clearfix= will_paginate @attachments
+    = will_paginate @attachments
 
   #switch_layout
     %p

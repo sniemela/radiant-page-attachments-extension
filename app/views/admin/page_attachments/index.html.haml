@@ -5,7 +5,7 @@
     %table.index
       %tr
         %th Image
-        %th Description (view)
+        %th Description
         %th Page
         %th Copy/Paste
       - unless @attachments.blank?
@@ -15,7 +15,8 @@
             %td
               - link_text = attachment.title.blank? ? attachment.filename : attachment.title
               = link_to(link_text, edit_admin_page_attachment_path(attachment), :title => 'Edit this image')
-            %td= link_to((attachment.description || attachment.public_filename), attachment.public_filename, :title => attachment.public_filename)
+              = link_to("(view)", attachment.public_filename, :title => page.url)
+            %td= attachment.description
             %td= link_to page.title, edit_admin_page_url(page), :title => page.url
             %td
               = sample_attachment_code(attachment)
