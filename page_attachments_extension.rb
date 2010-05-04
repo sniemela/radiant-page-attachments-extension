@@ -1,7 +1,7 @@
 require_dependency 'application_controller'
 
 class PageAttachmentsExtension < Radiant::Extension
-  version "1.0"
+  version "#{File.read(File.expand_path(File.dirname(__FILE__)) + '/VERSION')}"
   description "Adds page-attachment-style asset management."
   url "http://radiantcms.org"
   
