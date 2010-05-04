@@ -19,7 +19,7 @@ module Admin::PageAttachmentsHelper
     sample_end = h(%{</r:attachment>})
     
     if attachment.filename.match(/\.(jpg|gif|png|jpeg|tiff?)$/)
-      sample_middle = h(%{<r:image alt='#{escape_javascript(attachment.title)}'/>})
+      sample_middle = h(%{<r:image />})
     end
     
     code = sample_start + sample_middle + sample_end
