@@ -41,6 +41,10 @@ class Admin::PageAttachmentsController < ApplicationController
 			page = @attachment.page
 			@attachment.destroy
 			render :partial => 'admin/page/attachment', :layout => false, :collection => page.attachments
+		elsif request.delete?
+		  @attachment = PageAttachment.find(params[:id])
+		  @attachment.destroy
+		  redirect_to admin_page_attachments_url
 		end
 	end
 end
