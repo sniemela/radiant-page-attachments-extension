@@ -1,10 +1,16 @@
+.gridded, .gridded li { margin: 0; padding: 0;}
+.gridded { overflow: hidden;}
+.gridded li { background: #000; display: block; float: left; height: 230px; width: 180px; margin: 0 1em 1em 0;}
+.sample { background: #fff; display: block; width: 180px; height: 120px; margin: 0 10px 10px 0; overflow: hidden;}
+.pageTitle { background: #000; color: #fff; padding: 2px; }
+.pageTitle a { color: #fff;}
 #attachments {
   clear: both;
   border: 1px solid #d4cba4;
   background: white;
   margin: 10px 0;
 }
-#attachments .toolbar { 
+#attachments .toolbar {
   float: right;
   padding: 10px;
   width: 50px;
@@ -49,7 +55,7 @@
 {
   margin-left:20px;
 }
-#attachments ol li div 
+#attachments ol li div
 {
   float:left;width:25px;
 }
@@ -57,11 +63,11 @@
 {
   float:left;margin:0 10px 0 10px;
 }
-#attachments ol li p  
+#attachments ol li p
 {
   margin:0 0 5px 0;
 }
-#attachments ol li  
+#attachments ol li
 {
   margin-bottom:10px;border-bottom:1px dashed #cccccc;width:66%;padding-bottom:3px;
 }
@@ -72,7 +78,7 @@
 
 #attachments p.title
 {
-	border-bottom:1px #EAE3C5 solid;width:66%;font-size:17px;font-weight:bold;
+        border-bottom:1px #EAE3C5 solid;width:66%;font-size:17px;font-weight:bold;
 }
 #attachments table th
 {
@@ -80,7 +86,7 @@
 }
 #attachments table td
 {
- padding-bottom:5px; 
+ padding-bottom:5px;
 }
 #attachments p#reorder_notice
 {
