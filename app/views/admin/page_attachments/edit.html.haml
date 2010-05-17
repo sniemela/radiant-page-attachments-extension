@@ -12,7 +12,7 @@
     or
     = link_to 'Cancel', admin_page_attachments_url
   %p
-    = image_tag "admin/minus.png", :alt => "Delete", :class => 'delete'
+    = image_tag "admin/minus.png", :alt => "delete", :class => 'delete'
     - unless @page_attachment.thumbnails.empty?
       = link_to image_tag(@page_attachment.public_filename("icon")), @page_attachment.public_filename, :class => 'thumbnail'
   - unless @page_attachment.title.blank?
