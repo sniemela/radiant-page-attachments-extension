@@ -14,7 +14,7 @@
         %td
           = link_to((attachment.title.blank? ? attachment.filename : attachment.title), edit_admin_page_attachment_path(attachment))
           = link_to('(view)', attachment.filename)
-        %td= link_to attachment.page.title, page_edit_url(attachment.page)
+        %td= link_to attachment.page.title, edit_admin_page_url(attachment.page)
         %td
           - if attachment.filename.match(/\.(jpg|gif|png|jpeg|tiff?)$/)
             - code = %{<r:attachment name="#{attachment.filename}" url="#{attachment.page.url}"><r:image /></r:attachment>}
