@@ -1,50 +1,19 @@
-class Admin::PageAttachmentsController < ApplicationController
+class Admin::PageAttachmentsController < Admin::ResourceController
   
   def index
-    @attachments = PageAttachment.paginate :per_page => 25, :page => params[:page], :conditions => {:parent_id => nil}, :order => 'title, filename'
-  end
-  def grid
-    @attachments = PageAttachment.paginate :per_page => 25, :page => params[:page], :conditions => {:parent_id => nil}, :order => 'title, filename'
+    @attachments = PageAttachment.all(:conditions => {:parent_id => nil}, :include => [:page], :order => 'title, filename').paginate(@pagination_parameters)
   end
   
-  def edit
-    @page_attachment = PageAttachment.find(params[:id])
+  def grid
+    @attachments = PageAttachment.all(:conditions => {:parent_id => nil}, :include => [:page], :order => 'title, filename').paginate(@pagination_parameters)
   end
+  
   def update
     @page_attachment = PageAttachment.find(params[:id])
-    if @page_attachment.update_attributes(params[:page_attachment])
-      redirect_to admin_page_attachments_url
-    else
-      render :edit
+    params[:page_attachment].each do |k,v|
+      @page_attachment[k] = v
     end
+    @page_attachment.save!
+    response_for :update
   end
-  
-	def move_higher
-		if request.post?
-			@attachment = PageAttachment.find(params[:id])
-			@attachment.move_higher
-			render :partial => 'admin/page/attachment', :layout => false, :collection => @attachment.page.attachments
-		end
-	end
-
-	def move_lower
-		if request.post?
-			@attachment = PageAttachment.find(params[:id])
-			@attachment.move_lower
-			render :partial => 'admin/page/attachment', :layout => false, :collection => @attachment.page.attachments
-		end
-	end
-	
-	def destroy
-		if request.post?
-			@attachment = PageAttachment.find(params[:id])
-			page = @attachment.page
-			@attachment.destroy
-			render :partial => 'admin/page/attachment', :layout => false, :collection => page.attachments
-		elsif request.delete?
-		  @attachment = PageAttachment.find(params[:id])
-		  @attachment.destroy
-		  redirect_to admin_page_attachments_url
-		end
-	end
 end

@@ -52,10 +52,13 @@ describe "page attachment tags" do
   end
   
   it "should render image tag" do
-    page.should render('<r:attachment:image name="rails.png" />').as(%{<img src="#{img.public_filename}" />})
+    page.should render('<r:attachment:image name="rails.png" />').as(%{<img src="#{img.public_filename}" alt="#{img.title}" />})
   end
   it "should render image tag with HTML attributes" do
-    page.should render('<r:attachment:image name="rails.png" style="float: right;"/>').as(%{<img src="#{img.public_filename}" style="float: right;" />})
+    page.should render('<r:attachment:image name="rails.png" style="float: right;"/>').as(%{<img src="#{img.public_filename}" alt="#{img.title}" style="float: right;" />})
+  end
+  it "should render image tag with a default alt attribute" do
+    page.should render('<r:attachment:image name="rails.png" />').as(%{<img src="#{img.public_filename}" alt="#{img.title}" />})
   end
   it "should render link tag" do
     page.should render('<r:attachment:link name="rails.png" />').as(%{<a href="#{img.public_filename}">rails.png</a>})

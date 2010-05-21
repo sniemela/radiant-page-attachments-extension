@@ -114,9 +114,7 @@ working, dive right in.
 2. `cd /path/to/radiant`
 3. `cp vendor/plugins/attachment_fu/amazon_s3.yml.tpl config/amazon_s3.yml`
 4. edit `config/amazon_s3.yml` with your S3 credentials
-5. `cp vendor/extensions/page_attachments/app/models/page_attachment.rb vendor/extensions/page_attachments/app/models/page_attachment.rb.bak`
-6. edit line 2 of `vendor/extensions/page_attachments/app/models/page_attachment.rb` changing `:file_system` to `:s3`
-7. restart your server
+5. restart your server
 
 Add an attachment and make sure the link it gives back is on S3. You should see all your 
 attachments start showing up at `http://s3.amazonaws.com/bucket-name/page_attachments/`. 
@@ -129,6 +127,10 @@ Contributors
 
 These people have contributed patches that have been added to the extension:
 
+* [Jim Gay][jg]
+* [Taylor Barstow][tb]
+* Paul Hoehne
+* [Mislav Marohnić][mm]
 * [John Muhl][jm]
 * [Daniel Collis-Puro][djcp]
 * [James Burka][jb]
@@ -145,6 +147,9 @@ These people have contributed patches that have been added to the extension:
 [pa]: http://github.com/radiant/radiant-page-attachments-extension/tarball/master
 [s3]: http://www.amazon.com/gp/browse.html?node=16427261
 [jm]: http://github.com/johnmuhl
+[jg]: http://saturnflyer.com/
+[tb]: http://taylorbarstow.com/
+[mm]: http://mislav.uniqpath.com/
 [djcp]: http://www.kookdujour.com/
 [jb]: http://github.com/jjburka
 [ihoka]: http://github.com/ihoka

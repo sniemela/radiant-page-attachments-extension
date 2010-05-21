@@ -7,15 +7,16 @@
     %p.title
       = form.label :description
       = form.text_field :description, :class => 'textbox', :maxlength => 255
+    %p
+      Attached to Page:
+      - page = @page_attachment.page
+      = link_to page.title, edit_admin_page_path(page)
   %p.buttons
     = form.submit "Save"
     or
     = link_to 'Cancel', admin_page_attachments_url
   %p
-    =  link_to image_tag("admin/minus.png", :alt => "delete", :class => 'delete'), admin_page_attachment_path(@page_attachment), :method => :delete, :confirm => 'Are you sure?'
-    - unless @page_attachment.thumbnails.empty?
-      = link_to image_tag(@page_attachment.public_filename("icon")), @page_attachment.public_filename, :class => 'thumbnail'
-  - unless @page_attachment.title.blank?
-    %p
-      = h @page_attachment.short_title
+    - if @page_attachment.filename.match(/(jpg|gif|png|jpeg)$/)
+      = image_tag(@page_attachment.public_filename)
+    - else
       = link_to @page_attachment.short_filename, @page_attachment.public_filename

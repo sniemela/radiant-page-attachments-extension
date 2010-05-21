@@ -1,8 +1,16 @@
 class PageAttachment < ActiveRecord::Base
   acts_as_list :scope => :page_id
-  has_attachment :storage => :file_system,
+  has_attachment :storage => (
+                    case
+                      when File.exist?(Rails.root + 'config/amazon_s3.yml')
+                        :s3
+                      when File.exist?(Rails.root + 'config/rackspace_cloudfiles.yml')
+                        :cloud_files
+                      else
+                        :file_system
+                    end),
                  :thumbnails => defined?(PAGE_ATTACHMENT_SIZES) && PAGE_ATTACHMENT_SIZES || {:icon => '50x50>'},
-                 :max_size => 10.megabytes
+                 :max_size => defined?(PAGE_ATTACHMENT_MAX_FILESIZE) ? PAGE_ATTACHMENT_MAX_FILESIZE : 10.megabytes
   validates_as_attachment
 
   belongs_to :created_by,
@@ -16,15 +24,17 @@ class PageAttachment < ActiveRecord::Base
   attr_accessible :title, :description, :position
 
   def short_filename(wanted_length = 15, suffix = ' ...')
-          (self.filename.length > wanted_length) ? (self.filename[0,(wanted_length - suffix.length)] + suffix) : self.filename
+    (self.filename.length > wanted_length) ? (self.filename[0,(wanted_length - suffix.length)] + suffix) : self.filename
   end
 
   def short_title(wanted_length = 15, suffix = ' ...')
-          (self.title.length > wanted_length) ? (self.title[0,(wanted_length - suffix.length)] + suffix) : self.title
+    return '' if self.title.blank?
+    (self.title.length > wanted_length) ? (self.title[0,(wanted_length - suffix.length)] + suffix) : self.title
   end
 
   def short_description(wanted_length = 15, suffix = ' ...')
-          (self.description.length > wanted_length) ? (self.description[0,(wanted_length - suffix.length)] + suffix) : self.description
+    return '' if self.description.blank?
+    (self.description.length > wanted_length) ? (self.description[0,(wanted_length - suffix.length)] + suffix) : self.description
   end
 
 end

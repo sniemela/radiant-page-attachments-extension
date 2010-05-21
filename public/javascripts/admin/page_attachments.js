@@ -22,9 +22,33 @@ Event.addBehavior({
     } else if (target.match('img[alt=delete]')) {
       var attachment = event.findElement('.attachment');
       attachment.addClassName('deleted');
-      attachment.insert("<em>Attachment will be deleted when page is saved.</em>");
       attachment.down('input[name*="_delete"]').setValue('true');
+      attachment.insert('<em class="removal_message">Attachment will be deleted when page is saved.</em>');
+      attachment.insert(' <strong class="undelete">Undo&hellip;</strong>')
+    } else if (target.match('.undelete')) {
+      var attachment = event.findElement('.attachment');
+      attachment.removeClassName('deleted');
+      attachment.down('.undelete').remove();
+      attachment.down('.removal_message').remove();
+      attachment.down('input[name*="_delete"]').setValue('false');
     }
   }
 
+});
+
+var get_event_target = function (e) {
+  e = e || window.event;
+  return e.target || e.srcElement;
+};
+
+var select_sample_code = function (target) {
+  target.focus();
+  target.select();
+};
+
+document.observe("dom:loaded", function() {
+  document.getElementById('attachments').onclick = function (e) {
+    var target = get_event_target(e);
+    if (target.value) select_sample_code(target);
+  };
 });

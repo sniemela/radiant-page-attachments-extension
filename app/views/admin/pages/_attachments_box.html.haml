@@ -1,4 +1,8 @@
-#attachments
+- include_javascript 'admin/dragdrop'
+- include_javascript 'admin/page_attachments'
+- include_stylesheet 'admin/page_attachments'
+
+#attachments.page
   .toolbar
     = image_tag('admin/plus.png', :alt => 'add')
     = hidden_field_tag('attachment_index', @page.attachments.size, :id => 'attachment_index_field')

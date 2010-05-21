@@ -13,7 +13,7 @@ module PageAttachmentAssociations
   module InstanceMethods
     # Currently recursive, but could be simplified with some SQL
     def attachment(name)
-      att = attachments.find(:first, :conditions => ["filename LIKE ?", name.to_s])
+      att = attachments.find(:first, :conditions => ["filename = ?", name.to_s])
       att.blank? ? ((parent.attachment(name) if parent) or nil) : att
     end
   end
