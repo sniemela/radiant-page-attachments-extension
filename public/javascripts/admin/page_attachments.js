@@ -22,15 +22,8 @@ Event.addBehavior({
     } else if (target.match('img[alt=delete]')) {
       var attachment = event.findElement('.attachment');
       attachment.addClassName('deleted');
-      attachment.down('input[name*="_delete"]').setValue('true');
-      attachment.insert('<em class="removal_message">Attachment will be deleted when page is saved.</em>');
-      attachment.insert(' <strong class="undelete">Undo&hellip;</strong>')
-    } else if (target.match('.undelete')) {
-      var attachment = event.findElement('.attachment');
-      attachment.removeClassName('deleted');
-      attachment.down('.undelete').remove();
-      attachment.down('.removal_message').remove();
-      attachment.down('input[name*="_delete"]').setValue('false');
+      attachment.insert("<em>Attachment will be deleted when page is saved.</em>");
+      attachment.down('input[name*="_destroy"]').setValue('true');
     }
   }
 

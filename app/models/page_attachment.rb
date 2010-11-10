@@ -20,6 +20,8 @@ class PageAttachment < ActiveRecord::Base
              :class_name => 'User',
              :foreign_key => 'updated_by'
   belongs_to :page
+  
+  attr_accessible :title, :description
 
   attr_accessible :title, :description, :position
 
